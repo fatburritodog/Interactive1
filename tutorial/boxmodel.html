@@ -1,0 +1,118 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+    <title>
+        Box Model
+    </title>
+    <style>
+        /* this is the code for the box model */
+
+        .box {
+            width: 200px;
+            /*height 200px; */
+            height: 300px;
+            padding: 40px;
+            margin: 20px;
+            border: 3px solid #000;
+            background-color: #CCC;
+        }
+
+        .circle {
+            width: 400px;
+            height: 600px;
+            background-color: #f8dceb;
+            border-radius: 50%;
+        }
+
+        .placement {
+            height: 200px;
+            position: relative;
+            top: 50px;
+            left: 200px;
+            background-color: #961d5e;
+        }
+
+        .absolute {
+            height: 100px;
+            background-color: #f8dceb;
+            position: absolute;
+            top: 20px;
+            right: 0px;
+            margin-right: 0;
+        }
+
+        .fix {
+            height: 50px;
+            background-color: #d7318a;
+            position: fixed;
+            bottom: 0;
+            left: 300px;
+            margin: 0;
+            z-index: 11;
+        }
+
+        .centered {
+            background-color: #bee8da;
+            margin: 0 auto;
+        }
+
+        #highlight {
+            background-color: #3fac89;
+            border: 10px dotted #cbece1;
+        }
+
+        .fancy {
+            font-style: italic;
+            font-size: 44px;
+            text-decoration: line-through;
+            color: #f67e66;
+        }
+
+        a:visited{
+          color: #4d0f0f;
+        }
+
+        a{
+          color: ##e16969;
+          text-decoration: none;
+        }
+
+        a:hover{
+          color: #eca1a1;
+          text-decoration: underline;
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <div class="circle centered">
+    </div>
+
+    <div id="highlight" class="circle absolute card ">
+
+    </div>
+
+
+    <div class="box placement">
+
+    </div>
+
+    <div class="box">
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        <a href="https://www.google.com/search?q=dogs&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjmnomwvZDPAhUB2GMKHT75AXsQ_AUICCgB&biw=1099&bih=663"> consequat. </a> Duis aute irure dolor in <span class="fancy">reprehenderit</span> in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    </div>
+
+    <div class="box fix">
+
+    </div>
+
+</body>
+
+</html>
