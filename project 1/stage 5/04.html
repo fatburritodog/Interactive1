@@ -21,17 +21,9 @@
             background-color: #052B4E;
             border: 5px dotted #A7FF5A;
             padding: 20px;
-
-        }
-
-        .title:hover {
-            color: #2DDCD1;
-            border-color: #FFD25A;
-            background-color: #FF5072;
-            border-style: dashed;
-            border-width: 10px;
-            padding: 15px;
-            font-weight: bolder;
+            height: 300px;
+            width: 200px;
+              text-shadow: 20px 20px #FF7D37;
         }
 
         .year {
@@ -40,135 +32,127 @@
             letter-spacing: 15px;
             color: #2DDCD1;
             text-align: left;
-        }
-
-        .title:hover+.year {
-            color: #0CAED9;
-        }
-
-        .title:hover+.year+.author {
-            color: #57108E;
+            text-shadow: 10px 3px #9B360A;
         }
 
         .author {
-            font-weight: bolder;
-            font-size: 24px;
+            font-family: "lazer84", sans-serif;
+            font-size: 90px;
             letter-spacing: 10px;
-            color: #2DDCD1;
-            text-align: left;
-            background-color: #A9D0E7;
-            line-height: 50px;
-            padding: 20px;
+            color: #FA0B70;
+            background-color: #C481FF;
+            line-height: 70px;
+            padding: 60px;
+            width: 10px;
+            text-shadow: 2px 2px #9B0A87;
         }
 
         .first {
-            font-weight: 200;
-            font-size: 30px;
-            letter-spacing: 10px;
-            color: #0E4974;
-            text-align: left;
-            line-height: 34px;
-            background-color: #75D124;
+            color: #BFFFED;
+            font-size: 200px;
+            text-shadow: 4px 20px #37FFC8;
         }
 
         .second {
-            font-weight: bolder;
+          background-color: #540545;
             font-size: 20px;
-            letter-spacing: 5px;
-            color: #0E4974;
-            text-align: right;
-            background-color: #FF00B9;
-            border: 80px inset #9E217C;
-            margin: 20px;
-        }
-
-        .second span{
-          font-weight: bolder;
-          font-variant: small-caps;
-          font-size: 180%;
+            letter-spacing: 10px;
+            color: #FFF7BF;
+            padding: 40px;
+            text-shadow: 50px 4px #FFCBBF;
         }
 
         .third {
+          font-family: "Koliko", sans-serif;
             font-weight: bolder;
             font-size: 25px;
-            letter-spacing: 10px;
-            color: #222360;
+            letter-spacing: 20px;
+            color: #FFDC00;
             text-align: left;
             line-height: 60px;
-            background-color: #7AEC4F;
-            border: 20px double #FFA971;
+            background-color: #BB8CFF;
+            border: 20px double #543405;
+            text-shadow: 2px 2px #42F599;
         }
 
         .fourth {
             font-weight: bolder;
-            font-size: 9px;
+            font-size: 69px;
             letter-spacing: 17px;
-            color: #393CFF;
-            text-align: right;
+            color: #105A32;
+            text-align: center;
             line-height: 40px;
             border: 40px outset #105D8A;
+            text-shadow: 2px 2px #00FF74;
         }
 
         .fifth {
             font-weight: bolder;
-            font-size: 20px;
-            letter-spacing: 100px;
-            color: #F0FF6E;
+            font-size: 70px;
+            letter-spacing: 10px;
+            line-height: 20px;
+            color: #FF0C0C;
             text-align: left;
-            background-color: #FF9E00;
-            border: 10px ridge #71FFDA;
+            background-color: #6F3C3C;
+            border: 30px ridge #E55A5A;
+            text-shadow: 90px 2px #FF8B8B;
         }
 
         .sixth {
             font-style: italic;
-            font-size: 27px;
+            font-size: 40px;
             letter-spacing: 2px;
-            color: #0003FA;
+            color: #FFF;
             text-align: right;
+            text-shadow: 7px 7px #5AE588;
         }
 
         .seventh {
-            font-weight: bolder;
-            font-size: 300px;
+            font-weight: lighter;
+            font-size: 30px;
             letter-spacing: 20px;
-            color: #662091;
+            line-height: 100px;
+            color: #5A9DE5;
             text-align: left;
             word-break: break-all;
-            background-color: #9872B2;
-            border: 30px dashed #51157A;
+            background-color: #D1E7FF;
+            border: 3px dashed #275281;
+            text-shadow: 2px 2px #007BFF;
         }
 
         .eighth {
             font-weight: bolder;
-            font-size: 10px;
+            font-size: 100px;
             letter-spacing: 20px;
-            color: #C76BFF;
+            color: #FF008B;
             text-align: right;
             background-color: #D3DC0E;
-            border: 200px groove #5D00FF;
+            text-shadow: 6px 2px #FF88C9;
         }
 
-        .before a{
-          font-size: 100px;
-          letter-spacing: 14px;
-          color: #23B603;
+        .before a {
+            font-size: 100px;
+            letter-spacing: 14px;
+            color: #300FFF;
+            text-shadow: 5px 5px #FFB542;
         }
 
-        .after a{
-          font-size: 100px;
-          letter-spacing: 20px;
-          color: #DEBA42;
+        .after a {
+            font-size: 100px;
+            letter-spacing: 20px;
+            color: #FFB542;
+            text-shadow: 6px 6px #300FFF;
         }
     </style>
 </head>
 
 <body>
 
-    <marquee class="title">The New Typography</marquee>
+    <div class="title">The New Typography</div>
 
     <div class="year">[1923]</div>
 
-    <div class="author">Laszlo Moholy-Nagy</div>
+    <marquee class="author">Laszlo Moholy-Nagy</marquee>
 
     <div class="first">Typography is a tool of communication.</div>
     <div class="second">It must be communication in its most <span>intense</span> form.</div>
@@ -179,8 +163,8 @@
     <div class="seventh">Therefore priority: unequivocal clarity in all typographical compositions.</div>
     <div class="eighth">Legibility-communication must never be impaired by an a priori aesthetics.</div>
 
-    <div class="before"><a href="../stage 4/05.html">&laquo; Before </a></div>
-    <div class="after"><a href="02.html"> After&raquo;</a></div>
+    <div class="before"><a href="03.html">&laquo; prev </a></div>
+    <div class="after"><a href="05.html"> nxt&raquo;</a></div>
 
 </body>
 
