@@ -1,0 +1,61 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+    <title>
+        <!-- add your title here -->
+    </title>
+    <style>
+        .ball {
+            width: 200px;
+            height: 200px;
+            background-color: #FFC45C;
+            border-radius: 50%;
+            animation: bounce 0.40s alternate infinite;
+            position: absolute;
+            left: 100px
+        }
+
+        @keyframes bounce {
+            from {
+                bottom: 100px;
+            }
+            to {
+                bottom: 200px;
+            }
+        }
+
+        .box {
+            width: 200px;
+            height: 100px;
+            background-color: #7E5CFF;
+            animation: bounce 0.20s alternate infinite;
+            position: absolute;
+            left: 190px
+        }
+
+        @keyframes bounce {
+            from {
+                bottom: 100px;
+            }
+            to {
+                bottom: 300px;
+            }
+        }
+
+
+
+
+    </style>
+</head>
+
+<body>
+
+    <div class="ball"><img src></img></div>
+    <div class="box"></div>
+
+</body>
+
+</html>

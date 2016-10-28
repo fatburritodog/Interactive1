@@ -1,0 +1,293 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+    <title>
+        Caspie Saves The Ocean
+    </title>
+    <style>
+        body {
+            width: 1000px;
+            height: 1300px;
+            background: linear-gradient(to bottom right, #48DEFA, #0E4F5B);
+            overflow-x: hidden;
+        }
+
+        .tooltip {
+            text-shadow: 3px 4px #000;
+            color: #FFF;
+            font-size: 100px;
+        }
+
+        .tooltip:hover {
+            text-shadow: 5px 8px #000;
+            color: red;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #98D9FF;
+            color: #1643B2;
+            text-align: center;
+            text-shadow: none;
+            padding: 10px 10px;
+            border-radius: 10px;
+            position: absolute;
+            z-index: -1;
+            font-size: 16px;
+            left: 500px;
+            top: 150px;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
+
+        .tooltiptext.caspie {
+            background-image: url(caspie.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 100px;
+            height: 150px;
+            left: 675px;
+            top: 170px;
+            background-color: transparent;
+        }
+
+        .tooltiptext.arrow {
+            width: 0px;
+            height: 0px;
+            border: 10px solid transparent;
+            padding: 0px;
+            border-radius: 0px;
+            border-top-color: #98D9FF;
+            border-right-color: #98D9FF;
+            background-color: transparent;
+            left: 660px;
+            top: 205px;
+        }
+
+        .dolphin {
+            animation: diagonal 8s infinite;
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            cursor: pointer;
+        }
+
+        .dolphin:hover .default {
+            display: none;
+        }
+
+        .default2 {
+            display: none;
+        }
+
+        .dolphin:hover .default2 {
+            display: block;
+        }
+
+        .puffer {
+            animation: xAxis 2.5s infinite ease-in;
+            width: 200px;
+            position: absolute;
+            top: 300px;
+            left: 300px;
+            cursor: pointer;
+        }
+
+        .puffer img {
+            animation: yAxis 5s infinite ease-out;
+            width: 100%;
+        }
+
+        .puffer:hover .default {
+            display: none;
+        }
+
+        .puffer:hover .default2 {
+            display: block;
+        }
+
+        .beta img {
+            animation: yAxis 10s infinite ease-out;
+            width: 200px;
+            position: absolute;
+            top: 500px;
+            left: 300px;
+            cursor: pointer;
+        }
+
+        .beta:hover .default {
+            display: none;
+        }
+
+        .beta:hover .default2 {
+            display: block;
+        }
+
+        .bottle {
+            position: absolute;
+            animation: fall 5s infinite;
+        }
+
+        .bottle2 {
+            position: absolute;
+            animation: falling 10s infinite;
+        }
+
+        .bigbottle {
+            position: absolute;
+            animation: falling 9s infinite;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        input[type="checkbox"]+label span {
+            display: inline-block;
+            width: 200px;
+            height: 100px;
+            margin: -1px 4px 0 0;
+            vertical-align: middle;
+            background: url(bottle.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            cursor: pointer;
+        }
+
+        .bigbottle input[type="checkbox"]+label span {
+          width: 400px;
+          height: 400px;
+        }
+
+        input[type="checkbox"]:checked+label span {
+            display: none;
+        }
+
+        @keyframes diagonal {
+            0% {
+                top: -300px;
+                left: -100px;
+            }
+            25% {
+                top: 200px;
+                left: 100px;
+            }
+            50% {
+                top: 400px;
+                left: 200px;
+            }
+            75% {
+                top: 600px;
+                left: 400px;
+            }
+            100% {
+                top: 400px;
+                left: 1200px;
+            }
+        }
+
+        @keyframes fall {
+            0% {
+                top: -100px;
+                left: 100px;
+            }
+            25% {
+                top: 200px;
+                left: 100px;
+            }
+            50% {
+                top: 480px;
+                left: 100px;
+            }
+            100% {
+                top: 700px;
+                left: 100px;
+            }
+        }
+
+        @keyframes falling {
+            0% {
+                top: -100px;
+                left: 300px;
+            }
+            25% {
+                top: 300px;
+                left: 300px;
+            }
+            50% {
+                top: 600px;
+                left: 300px;
+            }
+            100% {
+                top: 1200px;
+                left: 300px;
+            }
+        }
+
+        @keyframes xAxis {
+            75% {
+                animation-timing-function: ease-in;
+                transform: translateX(100px);
+            }
+        }
+
+        @keyframes yAxis {
+            50% {
+                animation-timing-function: ease-out;
+                transform: translateY(-200px);
+            }
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <div class="dolphin">
+        <img class="default" src="dolphin.png" />
+        <img class="default2" src="dolphin2.png" />
+    </div>
+
+    <div class="puffer">
+        <img class="default" src="feesh.png" />
+        <img class="default2" src="feesh2.png" />
+    </div>
+
+    <div class="beta">
+        <img class="default" src="beta.png" />
+        <img class="default2" src="beta2.png" />
+    </div>
+
+
+
+
+
+    <div class="tooltip">HELP CLEAN THE OCEAN!!
+        <span class="tooltiptext"> Click on the trash to make it disappear!</span>
+        <span class="tooltiptext caspie"></span>
+        <span class="tooltiptext arrow"></span>
+
+    </div>
+
+
+
+
+
+
+    <div class="bottle"><input type="checkbox" id="c1" name="cc" />
+        <label for="c1"><span></span></label></div>
+    <div class="bottle2"><input type="checkbox" id="c2" name="cc" />
+        <label for="c2"><span></span></label></div>
+    <div class="bigbottle"><input type="checkbox" id="c3" name="cc" />
+        <label for="c3"><span></span></label></div>
+
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+    <title>
+        Interactive Posta
+    </title>
+    <style>
+
+    .body{
+
+    }
+    .fish {
+        background-color: #77FF84;
+        width: 200px;
+        height: 200px;
+        animation: across 7s infinite;
+        position: absolute;
+        left: 130px;
+        top: 100px;
+        -webkit-clip-path: polygon(51% 50%, 78% 56%, 98% 70%, 46% 78%, 0 70%, 18% 54%);
+        clip-path: polygon(51% 50%, 78% 56%, 98% 70%, 46% 78%, 0 70%, 18% 54%);
+    }
+
+    .fish:hover {
+        background-color: #8AEE37;
+    }
+
+    #text {
+      display:none;
+        font-size: 20px;
+        background-color: #0F8E30;
+    }
+
+    .fish:hover #text {
+      display:block;
+      color: #8AEE37;
+    }
+
+
+
+    .fish2 {
+        background-color: #BF990D;
+        position: absolute;
+        animation: diagonal 6s infinite;
+        left: 230px;
+        top: 200px;
+        width: 300px;
+        height: 300px;
+        -webkit-clip-path: polygon(1% 0%, 86% 30%, 69% 51%, 99% 78%, 100% 57%, 2% 50%, 85% 84%, 96% 80%, 99% 81%, 98% 79%, 98% 79%, 78% 82%, 66% 61%, 39% 57%, 41% 64%, 39% 26%, 69% 35%);
+        clip-path: polygon(1% 0%, 86% 30%, 69% 51%, 99% 78%, 100% 57%, 2% 50%, 85% 84%, 96% 80%, 99% 81%, 98% 79%, 98% 79%, 78% 82%, 66% 61%, 39% 57%, 41% 64%, 39% 26%, 69% 35%);
+    }
+
+    .fish2:hover{
+      background-color: #FFCE1B;
+    }
+
+    @keyframes across {
+        from {
+            right: -100px;
+        }
+        to {
+            left: 1000px;
+        }
+    }
+
+    @keyframes diagonal {
+        0% {
+            top: -100px;
+            left: -100px;
+        }
+        15% {
+            top: 100px;
+            left: 100px;
+        }
+        25% {
+            top: 150px;
+            left: 150px;
+            background-color: #FFCE1B;
+        }
+        55% {
+            top: 200px;
+            left: 200px;
+        }
+        60% {
+            top: 250px;
+            left: 250px;
+        }
+        80% {
+            top: 300px;
+            left: 300px;
+        }
+    }
+    </style>
+</head>
+
+<body>
+
+  <div class="fish"><div id="text">
+      Clean the Ocean!
+  </div></div>
+
+ <div class="fish2"></div>
+
+
+
+</body>
+
+</html>
