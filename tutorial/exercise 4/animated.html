@@ -1,0 +1,95 @@
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <title>
+    Exercise 4
+  </title>
+  <style>
+
+  body{
+    background-color: #874011;
+  }
+
+  	.container {
+  		width: 300px;
+  		margin: 150px auto;
+  	}
+
+    .photo {
+    	width: 200px;
+    	cursor: pointer;
+    	position: absolute;
+      box-shadow: 6px 5px 5px #3D1C06;
+    }
+
+    .m01 {
+    	transform: rotate(0deg);
+    }
+
+    .m02 {
+    	transform: rotate(3deg);
+    }
+
+    .m03 {
+    	transform: rotate(-7deg);
+    }
+
+    .casper{
+      font-size: 200px;
+      color: #874011;
+      text-shadow: 0.1em 0.1em 0.03em #3D1C06;
+    }
+
+  </style>
+
+  <script>
+    $(document).ready(function() {
+
+  		$(".photo").draggable();
+
+  		$(".photo.m01").click(function(){
+
+  			$(this).animate({
+  				top: '+=300',
+				  left: '-=25'
+				},500);
+
+  		});
+
+  		$(".photo.m02").click(function(){
+
+  			$(this).animate({
+  				top: '-=5',
+				  left: '-=300'
+				},500);
+
+  		});
+
+  		$(".photo.m03").click(function(){
+
+  			$(this).animate({
+  				top: '+=15',
+				  left: '+=300'
+				},500);
+
+  		});
+
+    });
+  </script>
+</head>
+
+<body>
+  <div class="casper">CASPER!!!</div>
+
+  <div class="container">
+	  <img src="supa7.JPG" class="photo m01" />
+	  <img src="supa4.JPG" class="photo m02" />
+	  <img src="supa2.JPG" class="photo m03" />
+  </div>
+
+</body>
+</html>

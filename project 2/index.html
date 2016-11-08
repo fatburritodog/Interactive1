@@ -172,6 +172,7 @@
         .music{
           width: 90px;
           height: 10px;
+          visibility: hidden;
         }
 
         @keyframes diagonal {
@@ -285,7 +286,9 @@
 <div class="music">
 <audio src="AquaticAmbience.mp3"
 	preload="auto"
-	controls> Your browser does not support the audio element.
+	controls
+  autoplay
+  loop> Your browser does not support the audio element.
   </audio>
 </div>
 
