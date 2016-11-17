@@ -1,0 +1,94 @@
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <title>
+    Exercise 7
+  </title>
+  <style>
+
+	  body {
+	  		text-align: center;
+        background-color: #0D1F79;
+	  }
+
+    #play-vid{
+      background-color: #B0FE31;
+      color: #0D1F79;
+    }
+
+  	#pause-vid {
+      background-color: #B0FE31;
+      color: #0D1F79;
+  		display: none;
+  	}
+
+  	.btn {
+  		letter-spacing: 2px;
+  		font-size:40px;
+  		font-family: Arial, Helvetica, sans-serif;
+  		font-weight: bold;
+  		cursor: pointer;
+  	}
+
+  </style>
+
+  <script>
+
+  	$(document).ready(function(){
+
+  		$("#play-vid").click(function(){
+
+  			$(this).hide();
+  			$("#pause-vid").show();
+  			$("#kermit")[0].play();
+
+  		});
+
+  		$("#pause-vid").click(function(){
+
+  			$(this).hide();
+  			$("#play-vid").show();
+  			$("#kermit")[0].pause();
+
+  		});
+
+  		$("#kermit").on('ended',function(){
+  			$("#play-vid").show();
+  			$("#pause-vid").hide();
+    	});
+
+  	});
+
+  </script>
+</head>
+
+<body>
+
+	<p>
+		<button id="play-vid" class="btn">PLAY</button>
+		<button id="pause-vid" class="btn">PAUSE</button>
+
+		<br />
+		<br />
+
+		<video id="kermit" width="360" height="640">
+		  <source src="kermit.mp4" type="video/mp4">
+		</video>
+	</p>
+
+	<video id="tennis" width="640" height="360" autoplay controls loop>
+	  <source src="tennis.mp4" type="video/mp4">
+	</video>
+
+	<br />
+	<br />
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/KG8njOXLza8" frameborder="0" allowfullscreen></iframe>
+  <br><br>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/uLi1qb3QSqA" frameborder="0" allowfullscreen></iframe>
+
+</body>
+</html>
