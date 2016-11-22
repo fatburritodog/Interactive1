@@ -1,0 +1,75 @@
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <!-- Add fancyBox -->
+	<link rel="stylesheet" href="fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+	<script type="text/javascript" src="fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  <title>
+    Caspercise 8
+  </title>
+
+  <style>
+
+  	.fancybox {
+  		display: block;
+  	}
+
+    body{
+      background-color: #9B72C6;
+    }
+
+    .pointy{
+      box-shadow: 3px 3px 3px #3E2E50;
+    }
+
+    .feast{
+      box-shadow: 3px 3px 3px #3E2E50;
+    }
+
+    .zen{
+      box-shadow: 3px 3px 3px #3E2E50;
+    }
+
+  </style>
+
+  <script>
+		$(document).ready(function() {
+
+			$(".fancybox").fancybox({
+
+        nextEffect: 'none',
+        prevEffect: 'none'
+
+      });
+
+		});
+  </script>
+</head>
+
+<body>
+
+  <div class="pointy">
+		<a class="fancybox" rel="mt_shasta" href="soup.jpg" title="Pointy Eared Casper">
+			<img src="soup.jpg" />
+		</a>
+  </div>
+
+  <div class="feast">
+    <a class="fancybox" rel="mt_shasta" href="soup2.jpg" title="Feasting Casper">
+			<img src="soup2.jpg" />
+		</a>
+  </div>
+
+  <div class="zen">
+		<a class="fancybox" rel="mt_shasta" href="soup3.jpg" title="Zen Casper">
+			<img src="soup3.jpg" />
+		</a>
+  </div>
+
+</body>
+</html>

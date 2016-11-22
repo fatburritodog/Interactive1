@@ -12,6 +12,11 @@
   </title>
   <style>
 
+  body{
+    background-image: url(./webback2.jpg);
+    background-size: cover;
+  }
+
   button{
     width: 100px;
     height: 30px;
@@ -19,26 +24,48 @@
   }
 
     #button800{
-      background-color: #FFE076;
+      background-color: #49FF52;
     }
 
     #button900{
-      background-color: #ADDE7E;
+      background-color: #40E448;
     }
 
     #button1000{
-      background-color: #5BBFFC;
+      background-color: #35C73C;
     }
 
     #button1100{
-      background-color: #428FFF;
+      background-color: #2BA731;
     }
 
     #button1200{
-      background-color: #4262FF;
+      background-color: #248E29;
     }
 
+    #bunny {
+      width: 200px;
+    }
 
+    #bunny img {
+      width: 100%;
+    }
+
+    #bunny.paused .paused {
+      display: block;
+    }
+
+    #bunny.playing .paused {
+      display: none;
+    }
+
+    #bunny.paused .playing {
+      display: none;
+    }
+
+    #bunny.playing .playing {
+      display: block;
+    }
   </style>
 
   <script>
@@ -46,10 +73,32 @@
 
     	$("#button800").click(
     		function(){
+          var audio = $('#bark')[0];
+          var bunny = $('#bunny')
 		    	// hover in
-	    		$('#bark')[0].pause();
-	 				$('#bark')[0].currentTime = 0;
-		    	$('#bark')[0].play();
+          if (audio.paused){
+            audio.play();
+            bunny.attr("class", "playing")
+          }else{
+            audio.pause();
+            bunny.attr("class",'paused')
+
+          }
+		  	}
+    	);
+
+      $("#button900").click(
+    		function(){
+          var audio = $('#bell')[0];
+          var bunny = $('#bunny')
+          if (audio.paused){
+            audio.play();
+            bunny.attr("class", "playing")
+          }else{
+            		audio.pause();
+                bunny.attr("class", "paused")
+          }
+
 
 		  	}
     	);
@@ -77,6 +126,14 @@
   <audio id="bark">
     <source src="Title Theme.mp3" type="audio/wav">
 	</audio>
+  <audio id="bell">
+    <source src="bell_delay2.mp3" type="audio/wav">
+  </audio>
+
+  <div id="bunny" class="paused">
+    <img class="paused" src="./fat ass bunny.png" />
+    <img class="playing" src="./fat-ass-bunny.gif" />
+</div>
 
 </body>
 </html>
