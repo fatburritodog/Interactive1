@@ -11,11 +11,63 @@
     /* start your style code here (if allowed) */
 
   </style>
+
+
 </head>
+
+
 
 <body>
 
-  <!-- start your code here -->
+<div class="bunny">
+  <img src="fat ass bunny.png">
+  <img src="fat-ass-bunny.gif">
+</div>
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+
+<script>
+
+
+
+$(document).ready(function(){
+
+    $("#day1 .button800").click(
+      function(){
+        var audio = $('#bark')[0];
+        var bunny = $('#bunny')
+        // hover in
+        if (audio.paused){
+          audio.play();
+          bunny.attr("class", "playing")
+        }else{
+          audio.pause();
+          bunny.attr("class",'paused')
+
+        }
+      }
+    );
+
+    $("#day1 .button900").click(
+      function(){
+        var audio = $('#bell')[0];
+        var bunny = $('#bunny')
+        if (audio.paused){
+          audio.play();
+          bunny.attr("class", "playing")
+        }else{
+              audio.pause();
+              bunny.attr("class", "paused")
+        }
+
+
+      }
+    );
+  })
+</script>
 
 </body>
+
 </html>
