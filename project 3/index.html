@@ -1,16 +1,41 @@
 <!doctype html>
 
 <html lang="en">
+
 <head>
 
-  <title>
-    <!-- add your title here -->
-  </title>
-  <style>
+    <title>
+        a casper a day
+    </title>
+    <style>
+        body {
+            background-color: #20A66D;
+        }
 
-    /* start your style code here (if allowed) */
+        #bunny {
+            width: 200px;
+        }
 
-  </style>
+        #bunny img {
+            width: 100%;
+        }
+
+        #bunny.paused .paused {
+            display: block;
+        }
+
+        #bunny.playing .paused {
+            display: none;
+        }
+
+        #bunny.paused .playing {
+            display: none;
+        }
+
+        #bunny.playing .playing {
+            display: block;
+        }
+    </style>
 
 
 </head>
@@ -19,55 +44,58 @@
 
 <body>
 
-<div class="bunny">
-  <img src="fat ass bunny.png">
-  <img src="fat-ass-bunny.gif">
-</div>
-<script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
-
-<script>
+    <div class="paused" id="bunny">
+        <img class="paused" src="fat ass bunny.png">
+        <img class="playing" src="fat-ass-bunny.gif">
+    </div>
 
 
-
-$(document).ready(function(){
-
-    $("#day1 .button800").click(
-      function(){
-        var audio = $('#bark')[0];
-        var bunny = $('#bunny')
-        // hover in
-        if (audio.paused){
-          audio.play();
-          bunny.attr("class", "playing")
-        }else{
-          audio.pause();
-          bunny.attr("class",'paused')
-
-        }
-      }
-    );
-
-    $("#day1 .button900").click(
-      function(){
-        var audio = $('#bell')[0];
-        var bunny = $('#bunny')
-        if (audio.paused){
-          audio.play();
-          bunny.attr("class", "playing")
-        }else{
-              audio.pause();
-              bunny.attr("class", "paused")
-        }
+    <audio id="bark">
+    <source src="Title Theme.mp3" type="audio/wav">
+	</audio>
 
 
-      }
-    );
-  })
-</script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $("#bunny").click(
+                function() {
+                    var audio = $('#bark')[0];
+                    var bunny = $('#bunny')
+                        // hover in
+                    if (audio.paused) {
+                        audio.play();
+                        bunny.attr("class", "playing")
+                    } else {
+                        audio.pause();
+                        bunny.attr("class", 'paused')
+
+                    }
+                }
+            );
+
+            $("#day1 .button900").click(
+                function() {
+                    var audio = $('#bell')[0];
+                    var bunny = $('#bunny')
+                    if (audio.paused) {
+                        audio.play();
+                        bunny.attr("class", "playing")
+                    } else {
+                        audio.pause();
+                        bunny.attr("class", "paused")
+                    }
+
+
+                }
+            );
+        })
+    </script>
+
 
 </body>
+
+
 
 </html>
