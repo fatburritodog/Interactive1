@@ -23,23 +23,56 @@
     background-color: #FFB953;
   }
 
-    #button800{
+    .button800{
       background-color: #49FF52;
     }
 
-    #button900{
+    .button900{
       background-color: #40E448;
     }
 
-    #button1000{
+    .button1000{
       background-color: #35C73C;
     }
 
-    #button1100{
+    .button1100{
       background-color: #2BA731;
     }
 
-    #button1200{
+    .button1200{
+      background-color: #248E29;
+    }
+    .button1300{
+      background-color: #248E29;
+    }
+    .button1400{
+      background-color: #248E29;
+    }
+    .button1500{
+      background-color: #248E29;
+    }
+    .button1600{
+      background-color: #248E29;
+    }
+    .button1700{
+      background-color: #248E29;
+    }
+    .button1800{
+      background-color: #248E29;
+    }
+    .button1900{
+      background-color: #248E29;
+    }
+    .button2000{
+      background-color: #248E29;
+    }
+    .button2100{
+      background-color: #248E29;
+    }
+    .button2200{
+      background-color: #248E29;
+    }
+    .button2300{
       background-color: #248E29;
     }
 
@@ -49,6 +82,7 @@
 
     #bunny img {
       width: 100%;
+      position:
     }
 
     #bunny.paused .paused {
@@ -66,12 +100,92 @@
     #bunny.playing .playing {
       display: block;
     }
+
+    .row1{
+      display:inline-block;
+    }
+
+    #day1 button{
+      border-color: #20A66D;
+      border-style: ridge;
+    }
+
+    #day1, #day2, #day3{
+      display: inline-block;
+    }
+
+    #day2 .button800{
+      background-color: #CB9FFD;
+      color: #130623;
+    }
+
+    #day2 .button900{
+      background-color: #BD92ED;
+      color: #130623;
+    }
+    #day2 .button1000{
+      background-color: #AA80D9;
+      color: #130623;
+    }
+    #day2 .button1100{
+      background-color: #9A71C7;
+      color: #130623;
+    }
+    #day2 .button1200{
+      background-color: #8D66B8;
+      color: #130623;
+    }
+    #day2 .button1300{
+      background-color: #7956A0;
+      color: #130623;
+    }
+    #day2 .button1400{
+      background-color: #6C4D8F;
+      color: #130623;
+    }
+    #day2 .button1500{
+      background-color: #5F437E;
+      color: #130623;
+    }
+    #day2 .button1600{
+      background-color: #52396F;
+      color: #CB9FFD;
+    }
+    #day2 .button1700{
+      background-color: #452F60;
+      color: #CB9FFD;
+    }
+    #day2 .button1800{
+      background-color: #3B2753;
+      color: #CB9FFD;
+    }
+    #day2 .button1900{
+      background-color: #341F4D;
+      color: #CB9FFD;
+    }
+    #day2 .button2000{
+      background-color: #2B1841;
+      color: #CB9FFD;
+    }
+    #day2 .button2100{
+      background-color: #231237;
+      color: #CB9FFD;
+    }
+    #day2 .button2200{
+      background-color: #1D0B32;
+      color: #CB9FFD;
+    }
+    #day2 .button2300{
+      background-color: #130623;
+      color: #CB9FFD;
+    }
+
   </style>
 
   <script>
   $(document).ready(function(){
 
-    	$("#button800").click(
+    	$("#day1 .button800").click(
     		function(){
           var audio = $('#bark')[0];
           var bunny = $('#bunny')
@@ -87,7 +201,7 @@
 		  	}
     	);
 
-      $("#button900").click(
+      $("#day1 .button900").click(
     		function(){
           var audio = $('#bell')[0];
           var bunny = $('#bunny')
@@ -109,31 +223,148 @@
 
 <body>
 
-  <button id="button800">08:00AM</button>
+<div id="day1">
+<div class="row1">
+  <button class="button800">08:00</button>
   <br>
   <br>
-  <button id="button900"> 09:00AM</button>
+  <button class="button900"> 09:00</button>
   <br><br>
-  <button id="button1000">10:00AM</button>
+  <button class="button1000">10:00</button>
   <br><br>
-  <button id="button1100">11:00AM</button>
+  <button class="button1100">11:00</button>
   <br><br>
-  <button id="button1200">12:00AM</button>
+  <button class="button1200">12:00</button>
   <br><br>
-  <button id="button1300"> 13:00AM</button>
+  <button class="button1300"> 13:00</button>
   <br><br>
+  <button class="button1400"> 14:00</button>
+  <br><br>
+  <button class="button1500"> 15:00</button>
+  <br><br>
+
+</div>
+  <div class="row1">
+
+  <button class="button1600"> 16:00</button>
+  <br><br>
+  <button class="button1700"> 17:00</button>
+  <br><br>
+  <button class="button1800"> 18:00</button>
+  <br><br>
+  <button class="button1900"> 19:00</button>
+  <br><br>
+  <button class="button2000"> 20:00</button>
+  <br><br>
+  <button class="button2100"> 21:00</button>
+  <br><br>
+  <button class="button2200"> 22:00</button>
+  <br><br>
+  <button class="button2300"> 23:00</button>
+  <br><br>
+</div>
+<div id="bunny" class="paused">
+  <img class="paused" src="./fat ass bunny.png" />
+  <img class="playing" src="./fat-ass-bunny.gif" />
+</div>
+</div>
+
+  <div id="day2">
+  <div class="row1">
+    <button class="button800">08:00</button>
+    <br>
+    <br>
+    <button class="button900"> 09:00</button>
+    <br><br>
+    <button class="button1000">10:00</button>
+    <br><br>
+    <button class="button1100">11:00</button>
+    <br><br>
+    <button class="button1200">12:00</button>
+    <br><br>
+    <button class="button1300"> 13:00</button>
+    <br><br>
+    <button class="button1400"> 14:00</button>
+    <br><br>
+    <button class="button1500"> 15:00</button>
+    <br><br>
+
+  </div>
+    <div class="row1">
+
+    <button class="button1600"> 16:00</button>
+    <br><br>
+    <button class="button1700"> 17:00</button>
+    <br><br>
+    <button class="button1800"> 18:00</button>
+    <br><br>
+    <button class="button1900"> 19:00</button>
+    <br><br>
+    <button class="button2000"> 20:00</button>
+    <br><br>
+    <button class="button2100"> 21:00</button>
+    <br><br>
+    <button class="button2200"> 22:00</button>
+    <br><br>
+    <button class="button2300"> 23:00</button>
+    <br><br></div>
+    <div id="bunny" class="paused">
+      <img class="paused" src="./fat ass bunny.png" />
+      <img class="playing" src="./fat-ass-bunny.gif" />
+  </div>
+  </div>
+
+
+    <div id="day3">
+    <div class="row1">
+      <button class="button800">08:00</button>
+      <br>
+      <br>
+      <button class="button900"> 09:00</button>
+      <br><br>
+      <button class="button1000">10:00</button>
+      <br><br>
+      <button class="button1100">11:00</button>
+      <br><br>
+      <button class="button1200">12:00</button>
+      <br><br>
+      <button class="button1300"> 13:00</button>
+      <br><br>
+      <button class="button1400"> 14:00</button>
+      <br><br>
+      <button class="button1500"> 15:00</button>
+      <br><br>
+
+    </div>
+      <div class="row1">
+
+      <button class="button1600"> 16:00</button>
+      <br><br>
+      <button class="button1700"> 17:00</button>
+      <br><br>
+      <button class="button1800"> 18:00</button>
+      <br><br>
+      <button class="button1900"> 19:00</button>
+      <br><br>
+      <button class="button2000"> 20:00</button>
+      <br><br>
+      <button class="button2100"> 21:00</button>
+      <br><br>
+      <button class="button2200"> 22:00</button>
+      <br><br>
+      <button class="button2300"> 23:00</button>
+      <br><br></div></div>
+
+
 
   <audio id="bark">
     <source src="Title Theme.mp3" type="audio/wav">
 	</audio>
-  <audio id="bell">
+  <audio id="bell" loop>
     <source src="bell_delay2.mp3" type="audio/wav">
   </audio>
 
-  <div id="bunny" class="paused">
-    <img class="paused" src="./fat ass bunny.png" />
-    <img class="playing" src="./fat-ass-bunny.gif" />
-</div>
+
 
 </body>
 </html>
