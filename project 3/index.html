@@ -3,39 +3,159 @@
 <html lang="en">
 
 <head>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
 
-    <title>
-        a casper a day
-    </title>
-    <style>
-        body {
-            background-color: #20A66D;
-        }
+<title>
+    a casper a day
+</title>
+<style>
+    body {
+        background-color: #20A66D;
+    }
 
-        #bunny {
-            width: 200px;
-        }
+    .date {
+        font-size: 30px;
+        font-family: "Oswald", sans-serif;
+        color: #fff;
+        letter-spacing: 5px;
+    }
 
-        #bunny img {
-            width: 100%;
-        }
+    #bunny {
+        width: 200px;
+    }
 
-        #bunny.paused .paused {
-            display: block;
-        }
+    #bunny img {
+        width: 100%;
+    }
 
-        #bunny.playing .paused {
-            display: none;
-        }
+    #bunny.paused .paused {
+        display: block;
+    }
 
-        #bunny.paused .playing {
-            display: none;
-        }
+    #bunny.playing .paused {
+        display: none;
+    }
 
-        #bunny.playing .playing {
-            display: block;
-        }
-    </style>
+    #bunny.paused .playing {
+        display: none;
+    }
+
+    #bunny.playing .playing {
+        display: block;
+    }
+
+    .map {
+        position: relative;
+        width: 75%;
+    }
+
+    #cat {
+        width: 300px;
+        position: relative;
+    }
+
+    #cat img {
+        width: 100%;
+    }
+
+    #cat.paused .paused {
+        display: block;
+    }
+
+    #cat.playing .paused {
+        display: none;
+    }
+
+    #cat.paused .playing {
+        display: none;
+    }
+
+    #cat.playing .playing {
+        display: block;
+    }
+
+    #pom {
+        width: 300px;
+        position: relative;
+    }
+
+    #pom img {
+        width: 100%;
+    }
+
+    #pom.paused .paused {
+        display: block;
+    }
+
+    #pom.playing .paused {
+        display: none;
+    }
+
+    #pom.paused .playing {
+        display: none;
+    }
+
+    #pom.playing .playing {
+        display: block;
+    }
+</style>
+
+<script>
+    $(document).ready(function() {
+
+        $("#bunny").click(
+            function() {
+                var audio = $('#bark')[0];
+                var bunny = $('#bunny')
+                    // hover in
+                if (audio.paused) {
+                    audio.play();
+                    bunny.attr("class", "playing")
+                } else {
+                    audio.pause();
+                    bunny.attr("class", 'paused')
+
+                }
+            }
+        );
+
+        $("#cat").click(
+            function() {
+                var audio = $('#ninenight')[0];
+                var cat = $('#cat')
+                if (audio.paused) {
+                    audio.play();
+                    cat.attr("class", "playing")
+                } else {
+                    audio.pause();
+                    cat.attr("class", "paused")
+                }
+
+
+            }
+        );
+
+        $("#pom").click(
+            function() {
+                var audio = $('#ninenight')[0];
+                var pom = $('#pom')
+                if (audio.paused) {
+                    audio.play();
+                    pom.attr("class", "playing")
+                } else {
+                    audio.pause();
+                    pom.attr("class", "paused")
+                }
+
+
+            }
+        );
+    })
+</script>
 
 
 </head>
@@ -48,50 +168,42 @@
         <img class="paused" src="fat ass bunny.png">
         <img class="playing" src="fat-ass-bunny.gif">
     </div>
+    <div class="date">28/11/16</div>
+
+
+
+    <div class="paused" id="cat">
+        <img class="paused" src="fatcat.png">
+        <img class="playing" src="fatcat.gif">
+    </div>
+    <div class="date">29/11/16</div>
+
+
+
+    <div class="paused" id="pom">
+        <img class="paused" src="pom2.png">
+        <img class="playing" src="pom2.gif">
+    </div>
+    <div class="date">29/11/16</div>
+
+
+
 
 
     <audio id="bark">
-    <source src="Title Theme.mp3" type="audio/wav">
+    <source src="Title Theme.mp3" type="audio/mp3">
 	</audio>
 
+    <audio id="ninenight">
+  <source src="Car 29-11.m4a" type="audio/mp3">
+</audio>
 
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script>
-        $(document).ready(function() {
-
-            $("#bunny").click(
-                function() {
-                    var audio = $('#bark')[0];
-                    var bunny = $('#bunny')
-                        // hover in
-                    if (audio.paused) {
-                        audio.play();
-                        bunny.attr("class", "playing")
-                    } else {
-                        audio.pause();
-                        bunny.attr("class", 'paused')
-
-                    }
-                }
-            );
-
-            $("#day1 .button900").click(
-                function() {
-                    var audio = $('#bell')[0];
-                    var bunny = $('#bunny')
-                    if (audio.paused) {
-                        audio.play();
-                        bunny.attr("class", "playing")
-                    } else {
-                        audio.pause();
-                        bunny.attr("class", "paused")
-                    }
+    <div class="map">
+        <img src="map.png">
+    </div>
 
 
-                }
-            );
-        })
-    </script>
+
 
 
 </body>
