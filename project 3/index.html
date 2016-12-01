@@ -1,370 +1,213 @@
 <!doctype html>
 
-
 <html lang="en">
+
 <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
 
-
-
-  <title>
-    a song a day
-  </title>
-  <style>
-
-  body{
-    background-image: url(./webback2.jpg);
-    background-size: cover;
-  }
-
-  button{
-    width: 100px;
-    height: 30px;
-    background-color: #FFB953;
-  }
-
-    .button800{
-      background-color: #49FF52;
+<title>
+    a casper a day
+</title>
+<style>
+    body {
+        background-color: #20A66D;
     }
 
-    .button900{
-      background-color: #40E448;
-    }
-
-    .button1000{
-      background-color: #35C73C;
-    }
-
-    .button1100{
-      background-color: #2BA731;
-    }
-
-    .button1200{
-      background-color: #248E29;
-    }
-    .button1300{
-      background-color: #248E29;
-    }
-    .button1400{
-      background-color: #248E29;
-    }
-    .button1500{
-      background-color: #248E29;
-    }
-    .button1600{
-      background-color: #248E29;
-    }
-    .button1700{
-      background-color: #248E29;
-    }
-    .button1800{
-      background-color: #248E29;
-    }
-    .button1900{
-      background-color: #248E29;
-    }
-    .button2000{
-      background-color: #248E29;
-    }
-    .button2100{
-      background-color: #248E29;
-    }
-    .button2200{
-      background-color: #248E29;
-    }
-    .button2300{
-      background-color: #248E29;
+    .date {
+        font-size: 30px;
+        font-family: "Oswald", sans-serif;
+        color: #fff;
+        letter-spacing: 5px;
     }
 
     #bunny {
-      width: 200px;
+        width: 200px;
     }
 
     #bunny img {
-      width: 100%;
-      position:
+        width: 100%;
     }
 
     #bunny.paused .paused {
-      display: block;
+        display: block;
     }
 
     #bunny.playing .paused {
-      display: none;
+        display: none;
     }
 
     #bunny.paused .playing {
-      display: none;
+        display: none;
     }
 
     #bunny.playing .playing {
-      display: block;
+        display: block;
     }
 
-    .row1{
-      display:inline-block;
+    .map {
+        position: relative;
+        width: 75%;
     }
 
-    #day1 button{
-      border-color: #20A66D;
-      border-style: ridge;
+    #cat {
+        width: 300px;
+        position: relative;
     }
 
-    #day1, #day2, #day3{
-      display: inline-block;
+    #cat img {
+        width: 100%;
     }
 
-    #day2 .button800{
-      background-color: #CB9FFD;
-      color: #130623;
+    #cat.paused .paused {
+        display: block;
     }
 
-    #day2 .button900{
-      background-color: #BD92ED;
-      color: #130623;
-    }
-    #day2 .button1000{
-      background-color: #AA80D9;
-      color: #130623;
-    }
-    #day2 .button1100{
-      background-color: #9A71C7;
-      color: #130623;
-    }
-    #day2 .button1200{
-      background-color: #8D66B8;
-      color: #130623;
-    }
-    #day2 .button1300{
-      background-color: #7956A0;
-      color: #130623;
-    }
-    #day2 .button1400{
-      background-color: #6C4D8F;
-      color: #130623;
-    }
-    #day2 .button1500{
-      background-color: #5F437E;
-      color: #130623;
-    }
-    #day2 .button1600{
-      background-color: #52396F;
-      color: #CB9FFD;
-    }
-    #day2 .button1700{
-      background-color: #452F60;
-      color: #CB9FFD;
-    }
-    #day2 .button1800{
-      background-color: #3B2753;
-      color: #CB9FFD;
-    }
-    #day2 .button1900{
-      background-color: #341F4D;
-      color: #CB9FFD;
-    }
-    #day2 .button2000{
-      background-color: #2B1841;
-      color: #CB9FFD;
-    }
-    #day2 .button2100{
-      background-color: #231237;
-      color: #CB9FFD;
-    }
-    #day2 .button2200{
-      background-color: #1D0B32;
-      color: #CB9FFD;
-    }
-    #day2 .button2300{
-      background-color: #130623;
-      color: #CB9FFD;
+    #cat.playing .paused {
+        display: none;
     }
 
-  </style>
+    #cat.paused .playing {
+        display: none;
+    }
 
-  <script>
-  $(document).ready(function(){
+    #cat.playing .playing {
+        display: block;
+    }
 
-    	$("#day1 .button800").click(
-    		function(){
-          var audio = $('#bark')[0];
-          var bunny = $('#bunny')
-		    	// hover in
-          if (audio.paused){
-            audio.play();
-            bunny.attr("class", "playing")
-          }else{
-            audio.pause();
-            bunny.attr("class",'paused')
+    #pom {
+        width: 300px;
+        position: relative;
+    }
 
-          }
-		  	}
-    	);
+    #pom img {
+        width: 100%;
+    }
 
-      $("#day1 .button900").click(
-    		function(){
-          var audio = $('#bell')[0];
-          var bunny = $('#bunny')
-          if (audio.paused){
-            audio.play();
-            bunny.attr("class", "playing")
-          }else{
-            		audio.pause();
-                bunny.attr("class", "paused")
-          }
+    #pom.paused .paused {
+        display: block;
+    }
+
+    #pom.playing .paused {
+        display: none;
+    }
+
+    #pom.paused .playing {
+        display: none;
+    }
+
+    #pom.playing .playing {
+        display: block;
+    }
+</style>
+
+<script>
+    $(document).ready(function() {
+
+        $("#bunny").click(
+            function() {
+                var audio = $('#bark')[0];
+                var bunny = $('#bunny')
+                    // hover in
+                if (audio.paused) {
+                    audio.play();
+                    bunny.attr("class", "playing")
+                } else {
+                    audio.pause();
+                    bunny.attr("class", 'paused')
+
+                }
+            }
+        );
+
+        $("#cat").click(
+            function() {
+                var audio = $('#ninenight')[0];
+                var cat = $('#cat')
+                if (audio.paused) {
+                    audio.play();
+                    cat.attr("class", "playing")
+                } else {
+                    audio.pause();
+                    cat.attr("class", "paused")
+                }
 
 
-		  	}
-    	);
+            }
+        );
+
+        $("#pom").click(
+            function() {
+                var audio = $('#ninenight')[0];
+                var pom = $('#pom')
+                if (audio.paused) {
+                    audio.play();
+                    pom.attr("class", "playing")
+                } else {
+                    audio.pause();
+                    pom.attr("class", "paused")
+                }
+
+
+            }
+        );
     })
-  </script>
+</script>
+
 
 </head>
 
+
+
 <body>
 
-<div id="day1">
-<div class="row1">
-  <button class="button800">08:00</button>
-  <br>
-  <br>
-  <button class="button900"> 09:00</button>
-  <br><br>
-  <button class="button1000">10:00</button>
-  <br><br>
-  <button class="button1100">11:00</button>
-  <br><br>
-  <button class="button1200">12:00</button>
-  <br><br>
-  <button class="button1300"> 13:00</button>
-  <br><br>
-  <button class="button1400"> 14:00</button>
-  <br><br>
-  <button class="button1500"> 15:00</button>
-  <br><br>
-
-</div>
-  <div class="row1">
-
-  <button class="button1600"> 16:00</button>
-  <br><br>
-  <button class="button1700"> 17:00</button>
-  <br><br>
-  <button class="button1800"> 18:00</button>
-  <br><br>
-  <button class="button1900"> 19:00</button>
-  <br><br>
-  <button class="button2000"> 20:00</button>
-  <br><br>
-  <button class="button2100"> 21:00</button>
-  <br><br>
-  <button class="button2200"> 22:00</button>
-  <br><br>
-  <button class="button2300"> 23:00</button>
-  <br><br>
-</div>
-<div id="bunny" class="paused">
-  <img class="paused" src="./fat ass bunny.png" />
-  <img class="playing" src="./fat-ass-bunny.gif" />
-</div>
-</div>
-
-  <div id="day2">
-  <div class="row1">
-    <button class="button800">08:00</button>
-    <br>
-    <br>
-    <button class="button900"> 09:00</button>
-    <br><br>
-    <button class="button1000">10:00</button>
-    <br><br>
-    <button class="button1100">11:00</button>
-    <br><br>
-    <button class="button1200">12:00</button>
-    <br><br>
-    <button class="button1300"> 13:00</button>
-    <br><br>
-    <button class="button1400"> 14:00</button>
-    <br><br>
-    <button class="button1500"> 15:00</button>
-    <br><br>
-
-  </div>
-    <div class="row1">
-
-    <button class="button1600"> 16:00</button>
-    <br><br>
-    <button class="button1700"> 17:00</button>
-    <br><br>
-    <button class="button1800"> 18:00</button>
-    <br><br>
-    <button class="button1900"> 19:00</button>
-    <br><br>
-    <button class="button2000"> 20:00</button>
-    <br><br>
-    <button class="button2100"> 21:00</button>
-    <br><br>
-    <button class="button2200"> 22:00</button>
-    <br><br>
-    <button class="button2300"> 23:00</button>
-    <br><br></div>
-    <div id="bunny" class="paused">
-      <img class="paused" src="./fat ass bunny.png" />
-      <img class="playing" src="./fat-ass-bunny.gif" />
-  </div>
-  </div>
-
-
-    <div id="day3">
-    <div class="row1">
-      <button class="button800">08:00</button>
-      <br>
-      <br>
-      <button class="button900"> 09:00</button>
-      <br><br>
-      <button class="button1000">10:00</button>
-      <br><br>
-      <button class="button1100">11:00</button>
-      <br><br>
-      <button class="button1200">12:00</button>
-      <br><br>
-      <button class="button1300"> 13:00</button>
-      <br><br>
-      <button class="button1400"> 14:00</button>
-      <br><br>
-      <button class="button1500"> 15:00</button>
-      <br><br>
-
+    <div class="paused" id="bunny">
+        <img class="paused" src="fat ass bunny.png">
+        <img class="playing" src="fat-ass-bunny.gif">
     </div>
-      <div class="row1">
-
-      <button class="button1600"> 16:00</button>
-      <br><br>
-      <button class="button1700"> 17:00</button>
-      <br><br>
-      <button class="button1800"> 18:00</button>
-      <br><br>
-      <button class="button1900"> 19:00</button>
-      <br><br>
-      <button class="button2000"> 20:00</button>
-      <br><br>
-      <button class="button2100"> 21:00</button>
-      <br><br>
-      <button class="button2200"> 22:00</button>
-      <br><br>
-      <button class="button2300"> 23:00</button>
-      <br><br></div></div>
+    <div class="date">28/11/16</div>
 
 
 
-  <audio id="bark">
-    <source src="Title Theme.mp3" type="audio/wav">
+    <div class="paused" id="cat">
+        <img class="paused" src="fatcat.png">
+        <img class="playing" src="fatcat.gif">
+    </div>
+    <div class="date">29/11/16</div>
+
+
+
+    <div class="paused" id="pom">
+        <img class="paused" src="pom2.png">
+        <img class="playing" src="pom2.gif">
+    </div>
+    <div class="date">29/11/16</div>
+
+
+
+
+
+    <audio id="bark">
+    <source src="Title Theme.mp3" type="audio/mp3">
 	</audio>
-  <audio id="bell" loop>
-    <source src="bell_delay2.mp3" type="audio/wav">
-  </audio>
+
+    <audio id="ninenight">
+  <source src="Car 29-11.m4a" type="audio/mp3">
+</audio>
+
+    <div class="map">
+        <img src="map.png">
+    </div>
+
+
 
 
 
 </body>
+
+
+
 </html>
