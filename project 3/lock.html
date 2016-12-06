@@ -1,0 +1,167 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <title>
+
+    </title>
+    <style>
+        body {
+            width: 100%;
+            text-align: center;
+            background-color: #196652;
+        }
+
+        img {
+            width: 250px;
+        }
+
+        .holder {
+            display: inline-block;
+        }
+
+        .all {
+            margin: 0 auto;
+        }
+
+        .holder.paused .paused {
+            display: block;
+        }
+
+        .holder.playing .paused {
+            display: none;
+        }
+
+        .holder.paused .playing {
+            display: none;
+        }
+
+        .holder.playing .playing {
+            display: block;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $('#one').on("ended", function() {
+
+            });
+
+            $("#cat").click(
+                function() {
+                    var audio = $('#one')[0];
+                    var cat = $('#cat')
+                    if (audio.paused) {
+                        audio.play();
+                        cat.attr("class", "holder playing")
+                    } else {
+                        audio.pause();
+                        cat.attr("class", "holder paused")
+                    }
+
+
+                }
+            );
+
+
+            $("#bunny").click(
+                function() {
+                    var audio = $('#two')[0];
+                    var bunny = $('#bunny')
+                        // hover in
+                    if (audio.paused) {
+                        audio.play();
+                        bunny.attr("class", "holder playing")
+                    } else {
+                        audio.pause();
+                        bunny.attr("class", 'holder paused')
+
+                    }
+                }
+            );
+
+
+            $("#pom").click(
+                function() {
+                    var audio = $('#three')[0];
+                    var pom = $('#pom')
+                    if (audio.paused) {
+                        audio.play();
+                        pom.attr("class", "holder playing")
+                    } else {
+                        audio.pause();
+                        pom.attr("class", "holder paused")
+                    }
+
+
+                }
+            );
+
+            $("#button").click(
+                function() {
+                    setTimeout(function() {
+                        var audio = $('#one')[0];
+                        audio.play();
+                        var cat = $('#cat')
+                        cat.attr("class", "holder playing")
+                    }, 10);
+                    setTimeout(function() {
+                        var audio = $('#two')[0];
+                        audio.play();
+                    }, 1000);
+                    setTimeout(function() {
+                        var audio = $('#three')[0];
+                        audio.play();
+                    }, 2000);
+
+
+                }
+            );
+        })
+    </script>
+</head>
+
+<body>
+
+
+    <div class="all">
+        <div class="holder paused" id="cat">
+            <img class="paused" src="fatcat.png">
+            <img class="playing" src="fatcatyellow.png">
+            <audio id="one">
+            <source src="bell1.mp3" type="audio/mp3">
+          </audio>
+        </div>
+
+        <div class="holder paused" id="bunny">
+            <img class="paused" src="fat ass bunny.png">
+            <img class="playing" src="fatbunnypurple.png">
+            <audio id="two">
+          <source src="bell2.mp3" type="audio/mp3">
+        </audio>
+        </div>
+
+        <div class="holder paused" id="pom">
+            <img class="paused" src="pom2.png">
+            <img class="playing" src="pombrown.png">
+            <audio id="three">
+        <source src="bell3.mp3" type="audio/mp3">
+        </audio>
+        </div>
+    </div>
+
+    <button id="button">Play Me</button>
+
+
+
+
+
+</body>
+
+</html>
