@@ -3,160 +3,102 @@
 <html lang="en">
 
 <head>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700&amp;subset=latin-ext" rel="stylesheet">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-</head>
 
-<title>
-    a casper a day
-</title>
-<style>
-    body {
-        background-color: #20A66D;
-    }
+    <title>
+        a casper a day
+    </title>
+    <style>
+        @font-face {
+            font-family: "Oswald";
+            src: url("./Oswald-Regular.ttf");
+        }
 
-    .date {
-        font-size: 30px;
-        font-family: "Oswald", sans-serif;
-        color: #fff;
-        letter-spacing: 5px;
-    }
+        @font-face {
+            font-family: "Oswald";
+            font-weight: 300;
+            src: url("./Oswald-Light.ttf");
+        }
 
-    #bunny {
-        width: 200px;
-    }
+        @font-face {
+            font-family: "Oswald";
+            font-weight: 700;
+            src: url("./Oswald-Bold.ttf");
+        }
 
-    #bunny img {
-        width: 100%;
-    }
+        body {
+            background-color: #20A66D;
+            font-family: "Oswald", sans-serif;
+            color: #fff;
+            letter-spacing: .1em;
+        }
 
-    #bunny.paused .paused {
-        display: block;
-    }
+        ol {
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
 
-    #bunny.playing .paused {
-        display: none;
-    }
+        li {
+            width: 49%;
+            float: left;
+        }
 
-    #bunny.paused .playing {
-        display: none;
-    }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
 
-    #bunny.playing .playing {
-        display: block;
-    }
+        .date {
+            font-size: 50px;
+            color: #fff;
+            letter-spacing: 5px;
+            font-weight: 400;
+        }
 
-    .map {
-        position: relative;
-        width: 75%;
-    }
+        #bunny {
+            width: 200px;
+        }
 
-    #cat {
-        width: 300px;
-        position: relative;
-    }
+        #bunny img {
+            width: 100%;
+        }
 
-    #cat img {
-        width: 100%;
-    }
+        #bunny.paused .paused {
+            display: block;
+        }
 
-    #cat.paused .paused {
-        display: block;
-    }
+        #bunny.playing .paused {
+            display: none;
+        }
 
-    #cat.playing .paused {
-        display: none;
-    }
+        #bunny.paused .playing {
+            display: none;
+        }
 
-    #cat.paused .playing {
-        display: none;
-    }
+        #bunny.playing .playing {
+            display: block;
+        }
 
-    #cat.playing .playing {
-        display: block;
-    }
+        .map {
+            position: relative;
+            width: 75%;
+        }
 
-    #pom {
-        width: 300px;
-        position: relative;
-    }
+        .map svg {
+            width: 100%;
+        }
 
-    #pom img {
-        width: 100%;
-    }
+        path {
+            fill: none;
+            stroke: none;
+            stroke-miterlimit: 10;
+        }
 
-    #pom.paused .paused {
-        display: block;
-    }
-
-    #pom.playing .paused {
-        display: none;
-    }
-
-    #pom.paused .playing {
-        display: none;
-    }
-
-    #pom.playing .playing {
-        display: block;
-    }
-</style>
-
-<script>
-    $(document).ready(function() {
-
-        $("#bunny").click(
-            function() {
-                var audio = $('#bark')[0];
-                var bunny = $('#bunny')
-                    // hover in
-                if (audio.paused) {
-                    audio.play();
-                    bunny.attr("class", "playing")
-                } else {
-                    audio.pause();
-                    bunny.attr("class", 'paused')
-
-                }
-            }
-        );
-
-        $("#cat").click(
-            function() {
-                var audio = $('#ninenight')[0];
-                var cat = $('#cat')
-                if (audio.paused) {
-                    audio.play();
-                    cat.attr("class", "playing")
-                } else {
-                    audio.pause();
-                    cat.attr("class", "paused")
-                }
-
-
-            }
-        );
-
-        $("#pom").click(
-            function() {
-                var audio = $('#ninenight')[0];
-                var pom = $('#pom')
-                if (audio.paused) {
-                    audio.play();
-                    pom.attr("class", "playing")
-                } else {
-                    audio.pause();
-                    pom.attr("class", "paused")
-                }
-
-
-            }
-        );
-    })
-</script>
-
+        .active {
+            stroke: #25f4bd;
+        }
+    </style>
 
 </head>
 
@@ -164,47 +106,71 @@
 
 <body>
 
-    <div class="paused" id="bunny">
-        <img class="paused" src="fat ass bunny.png">
-        <img class="playing" src="fat-ass-bunny.gif">
-    </div>
-    <div class="date">28/11/16</div>
+    <div class="container">
+        <h1 class="date">28/11/16</h1>
 
-
-
-    <div class="paused" id="cat">
-        <img class="paused" src="fatcat.png">
-        <img class="playing" src="fatcat.gif">
-    </div>
-    <div class="date">29/11/16</div>
-
-
-
-    <div class="paused" id="pom">
-        <img class="paused" src="pom2.png">
-        <img class="playing" src="pom2.gif">
-    </div>
-    <div class="date">29/11/16</div>
-
-
-
-
-
-    <audio id="bark">
-    <source src="Title Theme.mp3" type="audio/mp3">
-	</audio>
-
-    <audio id="ninenight">
-  <source src="Car 29-11.m4a" type="audio/mp3">
-</audio>
-
-    <div class="map">
-        <img src="map.png">
+        <div class="map">
+            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 216 234.96">
+            <image width="900" height="979" transform="scale(0.24)" xlink:href="map.png"/>
+            <path id="path1" d="M158,25.75s-3.75,2-3.75,4.25-.25,5.5,1.88,8.25,3.38,7.5,1.88,10.25-4.75,6.25-5,12,1,8-1.5,10.75-1.75,3.25-6,5"/>
+            <path id="path2" d="M143.25,76.25s-7,4.25-9.25,4.5-4.5-3-12.25,0-13.25-.5-15.25,6-2.75,10.25-4.75,14.5S99.75,108,95,111"/>
+            <path id="path3" d="M92.75,112.25a17.24,17.24,0,0,0-6.75,3c-4.45,3.25-6.2.44-9.5,2.23-4.65,2.52-7,7-6,10.52s.75,7.5,1.5,12a46.24,46.24,0,0,1,.5,14.5c-.75,5.25,2.7,5.75-2.15,10.25"/>
+            <path id="path4" d="M69,166.5a56.51,56.51,0,0,1-4,5.25c-2,2.25-7.75,7.5-9.25,8.25s8.75,9.25,9.75,12.5a19.83,19.83,0,0,1,1,5.25"/>
+          </svg>
+        </div>
+        <ol>
+            <li onclick="playSong('Happily')">Happily Ever After - Shoko Nakagawa</li>
+            <li onclick="playSong('Tsuzuku')">続く世界 - Shoko Nakagawa</li>
+            <li onclick="playSong('Wont')">Won't Say (I'm in Love) - Susan Egan</li>
+            <li onclick="playSong('Stand')">Stand by Me - Ben King</li>
+        </ol>
+        <div class="paused" id="bunny">
+            <img class="paused" src="fat ass bunny.png">
+            <img class="playing" src="fat-ass-bunny.gif">
+        </div>
     </div>
 
+    <audio id="Happily">
+    <source src="happily ever after.mp3" type="audio/mp3">
+    </audio>
 
+    <audio id="Tsuzuku">
+    <source src="続く世界.mp3" type="audio/mp3">
+    </audio>
 
+    <audio id="Wont">
+    <source src="wont say.mp3" type="audio/mp3">
+    </audio>
 
+    <audio id="Stand">
+    <source src="stand by me.mp3" type="audio/mp3">
+    </audio>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+        var currentSong = undefined;
+
+        function playSong(name) {
+            if (currentSong === undefined) {
+                var audio = $('#' + name)[0];
+                audio.play();
+                currentSong = name;
+            } else if (name === currentSong) {
+                var audio = $('#' + name)[0];
+                audio.pause();
+                currentSong = undefined;
+            } else {
+                var audio = $('#' + currentSong)[0];
+                audio.pause();
+                var audio2 = $('#' + name)[0];
+                audio2.play();
+                currentSong = name;
+            }
+        }
+        $(document).ready(function() {
+
+        });
+    </script>
 
 </body>
 

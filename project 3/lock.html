@@ -8,7 +8,7 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
     <title>
-
+        respect my authoritah
     </title>
     <style>
         body {
@@ -49,8 +49,35 @@
     <script>
         $(document).ready(function() {
 
-            $('#one').on("ended", function() {
+            var clicked = [false, false, false, false];
 
+            function goToNextPage() {
+                window.location = "./index.html"
+            }
+
+            $('#one').on("ended", function() {
+                var cat = $('#cat')
+                cat.attr("class", "holder paused")
+                if (clicked[2]) {
+                    goToNextPage();
+                } else if (clicked[0]) {
+                    clicked = [true, true, false, false];
+                } else {
+                    clicked = [false, false, false, false];
+                }
+            });
+
+            $('#two').on("ended", function() {
+                var bunny = $('#bunny')
+                bunny.attr("class", "holder paused")
+                if (clicked[1]) {
+                    clicked = [true, true, true, false]
+                }
+            });
+
+            $('#three').on("ended", function() {
+                var pom = $('#pom')
+                pom.attr("class", "holder paused")
             });
 
             $("#cat").click(
@@ -60,12 +87,7 @@
                     if (audio.paused) {
                         audio.play();
                         cat.attr("class", "holder playing")
-                    } else {
-                        audio.pause();
-                        cat.attr("class", "holder paused")
                     }
-
-
                 }
             );
 
@@ -78,10 +100,6 @@
                     if (audio.paused) {
                         audio.play();
                         bunny.attr("class", "holder playing")
-                    } else {
-                        audio.pause();
-                        bunny.attr("class", 'holder paused')
-
                     }
                 }
             );
@@ -94,31 +112,42 @@
                     if (audio.paused) {
                         audio.play();
                         pom.attr("class", "holder playing")
-                    } else {
-                        audio.pause();
-                        pom.attr("class", "holder paused")
                     }
-
-
+                    clicked = [true, false, false, false];
                 }
             );
 
             $("#button").click(
                 function() {
+                    clicked = [false, false, false, false];
                     setTimeout(function() {
                         var audio = $('#one')[0];
                         audio.play();
                         var cat = $('#cat')
                         cat.attr("class", "holder playing")
-                    }, 10);
+                    }, 2500);
                     setTimeout(function() {
                         var audio = $('#two')[0];
                         audio.play();
-                    }, 1000);
+                        var bunny = $('#bunny')
+                        bunny.attr("class", "holder playing")
+                    }, 5000);
                     setTimeout(function() {
                         var audio = $('#three')[0];
                         audio.play();
-                    }, 2000);
+                        var pom = $('#pom')
+                        pom.attr("class", "holder playing")
+                    }, 10);
+                    setTimeout(function() {
+                        var audio = $('#one')[0];
+                        if (audio.paused) {
+                            audio.play();
+                        } else {
+                            audio.currentTime = 0;
+                        }
+                        var cat = $('#cat')
+                        cat.attr("class", "holder playing")
+                    }, 7500);
 
 
                 }
