@@ -57,26 +57,50 @@
         }
 
         #bunny {
-            width: 200px;
+            position: absolute;
+            width: 120px;
+            top: 106px;
+            left: 516px;
         }
 
-        #bunny img {
+        #bunny2 {
+            position: absolute;
+            width: 120px;
+            top: 490px;
+            left: 42px;
+        }
+
+        #cat {
+            position: absolute;
+            width: 120px;
+            top: 167px;
+            left: 235px;
+        }
+
+        #pom {
+            position: absolute;
+            width: 120px;
+            top: 400px;
+            left: 259px;
+        }
+
+        .map div img {
             width: 100%;
         }
 
-        #bunny.paused .paused {
+        .map div.paused .paused {
             display: block;
         }
 
-        #bunny.playing .paused {
+        .map div.playing .paused {
             display: none;
         }
 
-        #bunny.paused .playing {
+        .map div.paused .playing {
             display: none;
         }
 
-        #bunny.playing .playing {
+        .map div.playing .playing {
             display: block;
         }
 
@@ -92,11 +116,61 @@
         path {
             fill: none;
             stroke: none;
+            stroke-width: 4;
             stroke-miterlimit: 10;
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
         }
 
-        .active {
+        path.paused {
+            animation-play-state: paused !important;
+        }
+
+        @keyframes dash1 {
+            to {
+                stroke-dashoffset: 42;
+            }
+        }
+
+        @keyframes dash2 {
+            to {
+                stroke-dashoffset: 32;
+            }
+        }
+
+        @keyframes dash3 {
+            to {
+                stroke-dashoffset: 60;
+            }
+        }
+
+        #path1.active {
+            animation: dash1 221s linear forwards;
+            stroke-dashoffset: 100;
             stroke: #25f4bd;
+        }
+
+        #path2.active {
+            animation: dash2 291s linear forwards;
+            stroke-dashoffset: 100;
+            stroke: #197683;
+        }
+
+        #path3.active {
+            animation: dash2 142s linear forwards;
+            stroke-dashoffset: 100;
+            stroke: #B51AD8;
+        }
+
+        #path4.active {
+            animation: dash3 130s linear forwards;
+            stroke-dashoffset: 100;
+            stroke: #C72048;
+        }
+
+        .finished {
+            stroke: #25f4bd;
+            stroke-dashoffset: 0;
         }
     </style>
 
@@ -111,12 +185,28 @@
 
         <div class="map">
             <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 216 234.96">
-            <image width="900" height="979" transform="scale(0.24)" xlink:href="map.png"/>
+            <image width="900" height="979" transform="scale(0.24)" xlink:href="mapnight.png"/>
             <path id="path1" d="M158,25.75s-3.75,2-3.75,4.25-.25,5.5,1.88,8.25,3.38,7.5,1.88,10.25-4.75,6.25-5,12,1,8-1.5,10.75-1.75,3.25-6,5"/>
             <path id="path2" d="M143.25,76.25s-7,4.25-9.25,4.5-4.5-3-12.25,0-13.25-.5-15.25,6-2.75,10.25-4.75,14.5S99.75,108,95,111"/>
             <path id="path3" d="M92.75,112.25a17.24,17.24,0,0,0-6.75,3c-4.45,3.25-6.2.44-9.5,2.23-4.65,2.52-7,7-6,10.52s.75,7.5,1.5,12a46.24,46.24,0,0,1,.5,14.5c-.75,5.25,2.7,5.75-2.15,10.25"/>
             <path id="path4" d="M69,166.5a56.51,56.51,0,0,1-4,5.25c-2,2.25-7.75,7.5-9.25,8.25s8.75,9.25,9.75,12.5a19.83,19.83,0,0,1,1,5.25"/>
           </svg>
+            <div class="paused" id="bunny">
+                <img class="paused" src="fat ass bunny.png">
+                <img class="playing" src="fat-ass-bunny.gif">
+            </div>
+            <div class="paused" id="bunny2">
+                <img class="paused" src="fat ass bunny.png">
+                <img class="playing" src="fat-ass-bunny.gif">
+            </div>
+            <div class="holder paused" id="cat">
+                <img class="paused" src="fatcat.png">
+                <img class="playing" src="fatcat.gif">
+            </div>
+            <div class="holder paused" id="pom">
+                <img class="paused" src="pom2.png">
+                <img class="playing" src="pom2.gif">
+            </div>
         </div>
         <ol>
             <li onclick="playSong('Happily')">Happily Ever After - Shoko Nakagawa</li>
@@ -124,10 +214,6 @@
             <li onclick="playSong('Wont')">Won't Say (I'm in Love) - Susan Egan</li>
             <li onclick="playSong('Stand')">Stand by Me - Ben King</li>
         </ol>
-        <div class="paused" id="bunny">
-            <img class="paused" src="fat ass bunny.png">
-            <img class="playing" src="fat-ass-bunny.gif">
-        </div>
     </div>
 
     <audio id="Happily">
@@ -155,21 +241,133 @@
                 var audio = $('#' + name)[0];
                 audio.play();
                 currentSong = name;
+                setActive(currentSong);
             } else if (name === currentSong) {
                 var audio = $('#' + name)[0];
                 audio.pause();
+                setPaused(currentSong);
                 currentSong = undefined;
             } else {
                 var audio = $('#' + currentSong)[0];
                 audio.pause();
+                setPaused(currentSong);
                 var audio2 = $('#' + name)[0];
                 audio2.play();
                 currentSong = name;
+                setActive(currentSong);
             }
         }
-        $(document).ready(function() {
 
-        });
+        function setActive(name) {
+            var bunny = $('#bunny')
+            bunny.attr("class", "holder paused")
+            var bunny2 = $('#bunny2')
+            bunny2.attr("class", "holder paused")
+            var cat = $('#cat')
+            cat.attr("class", "holder paused")
+            var pom = $('#pom')
+            pom.attr("class", "holder paused")
+            if (name === "Happily") {
+                bunny.attr("class", "holder playing")
+                $("#path1").attr("class", "active");
+                $("#path2").attr("class", "");
+                $("#path3").attr("class", "");
+                $("#path4").attr("class", "");
+            }
+            if (name === "Tsuzuku") {
+                cat.attr("class", "holder playing")
+                $("#path1").attr("class", "finished");
+                $("#path2").attr("class", "active");
+                $("#path3").attr("class", "");
+                $("#path4").attr("class", "");
+            }
+            if (name === "Wont") {
+                pom.attr("class", "holder playing")
+                $("#path1").attr("class", "finished");
+                $("#path2").attr("class", "finished");
+                $("#path3").attr("class", "active");
+                $("#path4").attr("class", "");
+            }
+            if (name === "Stand") {
+                bunny2.attr("class", "holder playing")
+                $("#path1").attr("class", "finished");
+                $("#path2").attr("class", "finished");
+                $("#path3").attr("class", "finished");
+                $("#path4").attr("class", "active");
+            }
+        }
+
+        function setPaused(name) {
+            if (name === "Happily") {
+                var bunny = $('#bunny')
+                bunny.attr("class", "holder paused")
+                $("#path1").attr("class", "active paused");
+            }
+            if (name === "Tsuzuku") {
+                var cat = $('#cat')
+                cat.attr("class", "holder paused")
+                $("#path2").attr("class", "active paused");
+            }
+            if (name === "Wont") {
+                var pom = $('#pom')
+                pom.attr("class", "holder paused")
+                $("#path3").attr("class", "active paused");
+            }
+            if (name === "Stand") {
+                var bunny2 = $('#bunny2')
+                bunny2.attr("class", "holder paused")
+                $("#path4").attr("class", "active paused");
+            }
+        }
+
+        $("#bunny").click(
+            function() {
+                playSong('Happily')
+                var bunny = $('#bunny')
+                var audio = $("#Happily")[0]
+                if (!audio.paused) {
+                    bunny.attr("class", "holder playing")
+                } else {
+                    bunny.attr("class", "holder paused")
+                }
+            }
+        );
+        $("#cat").click(
+            function() {
+                playSong('Tsuzuku')
+                var cat = $('#cat')
+                var audio = $("#Tsuzuku")[0]
+                if (!audio.paused) {
+                    cat.attr("class", "holder playing")
+                } else {
+                    cat.attr("class", "holder paused")
+                }
+            }
+        );
+        $("#pom").click(
+            function() {
+                playSong('Wont')
+                var pom = $('#pom')
+                var audio = $("#Wont")[0]
+                if (!audio.paused) {
+                    pom.attr("class", "holder playing")
+                } else {
+                    pom.attr("class", "holder paused")
+                }
+            }
+        );
+        $("#bunny2").click(
+            function() {
+                playSong('Stand')
+                var bunny2 = $('#bunny2')
+                var audio = $("#Stand")[0]
+                if (!audio.paused) {
+                    bunny2.attr("class", "holder playing")
+                } else {
+                    bunny2.attr("class", "holder paused")
+                }
+            }
+        );
     </script>
 
 </body>
